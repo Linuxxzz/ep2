@@ -8,10 +8,13 @@ use App\Http\Controllers\FavoritosController;
 
 // Rutas protegidas para el administrador
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    // Dashboard y gestión de usuarios
     Route::get('/dashboard', [AuthController::class, 'adminDashboard'])->name('admin-dashboard');
     Route::get('/consultarusuarios', [AuthController::class, 'consultarUsuarios'])->name('consultarusuarios');
     Route::delete('/usuarios/{id}', [AuthController::class, 'destroy'])->name('admin.usuarios.destroy');
     Route::post('/usuarios/{id}/promote', [AuthController::class, 'promoteToAdmin'])->name('admin.usuarios.promote');
+
+    // Gestión de compras y productos
     Route::get('/consultarcompras', [VentasController::class, 'consultarCompras'])->name('consultarcompras');
     Route::delete('/eliminar-compra/{id}', [VentasController::class, 'eliminarCompra'])->name('admin.compras.destroy');
     Route::get('/consultarproductos', [ProductosController::class, 'index'])->name('consultarproductos');

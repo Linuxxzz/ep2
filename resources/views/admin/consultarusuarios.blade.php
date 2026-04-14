@@ -54,7 +54,6 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="d-flex gap-1 justify-content-center">
-                                        <!-- Botón para promover a admin con alert -->
                                         @if($usuario->role != 'admin')
                                         <form action="{{ route('admin.usuarios.promote', $usuario->id) }}" method="POST" class="d-inline">
                                             @csrf
@@ -64,7 +63,6 @@
                                         </form>
                                         @endif
 
-                                        <!-- Botón para eliminar usuario -->
                                         <form action="{{ route('admin.usuarios.destroy', $usuario->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')

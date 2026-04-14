@@ -91,7 +91,7 @@ class ProductosController extends Controller{
 
     private function getCategoryIds() {
         $categoriesResponse = Http::withoutVerifying()->get(self::API_CATEGORIES_URL)->json() ?? [];
-        $ids = ['ropa' => 1, 'calzado' => 4]; // Fallbacks históricos
+        $ids = ['ropa' => 1, 'calzado' => 4];
 
         foreach($categoriesResponse as $cat) {
             if(isset($cat['name'])) {

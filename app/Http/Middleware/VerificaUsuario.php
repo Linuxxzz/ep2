@@ -25,4 +25,3 @@ class VerificaUsuario{
         return $next($request);
     }
 }
-

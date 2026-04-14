@@ -12,7 +12,7 @@ class VentasController extends Controller
 {
     public function carrito()
     {
-        // Solo mostramos los productos que no tienen venta_id asignado (están en el carrito)
+        // Solo mostramos los productos que no tienen venta_id asignado
         $detalles = DetalleVenta::where('user_id', Auth::id())
                                 ->whereNull('venta_id')
                                 ->with('producto')

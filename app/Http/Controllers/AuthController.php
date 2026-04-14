@@ -91,7 +91,7 @@ class AuthController extends Controller{
     public function promoteToAdmin($id)
     {
         $usuario = User::findOrFail($id);
-        $usuario->is_admin = '1'; // Asumiendo que existe una columna 'role' en la tabla users
+        $usuario->is_admin = '1';
         $usuario->save();
 
         return redirect()->back()->with('success', 'Usuario promovido a administrador correctamente.');
